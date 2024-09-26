@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Hendry's BURGER counter</title>
+</head>
+
+<body>
+
+    <div id="navbar">
+            <h1>Hendry's BURGER counter</h1>
+        <div class="useless-container">
+            <h2>This is useless</h2>
+            <h2>This is also useless</h2>
+            <h2>This is a demo tho</h2>
+        </div>
+    </div>
+
+
+    <div id="main-content">       
+        <div id ="sidebar">
+            <h3>Number of your BURGERS</h3>
+            <p id="resultId">0</p>
+        </div>
+
+        <div id ="content">
+            <h4>Burger Center</h4>
+                <div class="buttons-container">
+                    <button id="minusTwo">-2 Burgers</button>
+                    <button id="minusOne">-1 Burger</button>
+                    <button id="reset">No BURGERS</button>
+                    <button id="plusOne">Another Burger</button>
+                    <button id="plusTwo">2 MORE Burgers</button>
+                </div>     
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+
+    var total = 0;
+
+    function updateResult() {
+        document
+            .querySelector("#resultId")
+            .innerHTML = total;
+    }
+
+    document
+        .getElementById("minusTwo")
+        .addEventListener("click",
+            function(){
+                total = total - 2;
+            updateResult();
+            });
+
+    document
+        .getElementById("minusOne")
+        .addEventListener("click",
+            function(){
+                total = total - 1;
+            updateResult();
+            });
+
+    document
+        .getElementById("reset")
+        .addEventListener("click",
+            function(){
+                total = 0;
+            updateResult();
+            });
+
+    document
+        .getElementById("plusOne")
+        .addEventListener("click",
+            function(){
+                total = total + 1;
+            updateResult();
+            });
+
+    document
+        .getElementById("plusTwo")
+        .addEventListener("click",
+            function(){
+                total = total + 2;
+            updateResult();
+            });
+</script>
+
+
+
+</html>
