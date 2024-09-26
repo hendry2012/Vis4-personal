@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Handsome Hendry</title>
+</head>
+<body>
+    <div id="navbar">
+        <h1>Navigation Bar</h1>
+
+
+
+    </div>
+    <div id="main-content">       
+        <div class="sidebar">
+            <h3>Sidebar</h3>
+            <button id="Menu-button">Do not click this button</button>
+
+
+            <script type="text/javascript">
+                document
+                    .getElementById("Menu-button")
+                    .addEventListener("click", function() {
+                            
+                            console.log("Stupid found!")
+
+                            document
+                                .querySelector(".content")
+                                .innerHTML ="<p>I TOLD YOU NOT TO DO THAT DUM DUM</p>"
+                                
+                });
+            </script>
+
+        </div>
+        <div class="content">
+            <h2>Main Content Area</h2>
+            <p class="bolded">My name is Optimus Prime</p>
+            <p class="bolded">My name is Optimus Prime</p>
+            <p class="bolded">My name is Optimus Prime</p>
+            <p>My name is Optimus Prime</p>
+            <p>My name is Optimus Prime</p>   
+            <button id="scam-button">You are the 999,999th visitor! click to claim your prize</button>
+            <script type="text/javascript">
+                document
+                    .getElementById("scam-button")
+                    .addEventListener("click", function() {
+                            console.log("Congrats U scammed someone")
+                        
+                });
+            </script>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

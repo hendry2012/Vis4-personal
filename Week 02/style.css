@@ -1,0 +1,55 @@
+body {
+    display: block;
+    margin: 0px;
+}
+
+h1 {
+	color: whitesmoke;
+	margin: 0px;
+}
+
+body, h2, h3 {
+	margin: 0px;
+}
+
+
+/* ID uses a "#" */
+#navbar {
+	background-color: #333;
+	color: whitesmoke;
+	height: 150px;
+	text-align: center;
+}
+
+#main-content {
+	background-color: #f4f4f4;
+	height: calc(100vh - 150px);
+	display: flex;
+}
+
+/* class uses a dot "." */
+.bolded {
+	font-weight: 600;
+	color: blue;
+	padding: 0 60px;
+	background-color: yellow;
+}
+
+.sidebar {
+	width: 400px;
+	height: 100%;
+	background-color: pink;
+
+}
+
+.content {
+	flex: 1;
+}
+
+
+@media (max-width: 800px) {
+    .sidebar {
+        background-color: limegreen;
+        width: 200px;
+    }
+}
