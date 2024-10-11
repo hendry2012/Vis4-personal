@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import MainContent from './MainContent';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import MainContent from "./MainContent";
 
 function App() {
   const [total, setTotal] = useState(1);
   const [history, setHistory] = useState([]);
-  const [operationCount, setOperationCount] = useState({ additions: 0, subtractions: 0 });
+  const [operationCount, setOperationCount] = useState({
+    additions: 0,
+    subtractions: 0,
+  });
   const updateSummary = () => {
     return `You did: ${operationCount.additions} good things\nYou did ${operationCount.subtractions} bad things`;
   };
@@ -23,43 +26,43 @@ function App() {
 
   function SinAddOne() {
     setTotal(total + 1);
-    setOperationCount(prevCount => ({
-        ...prevCount,
-        additions: prevCount.additions + 1,
-      }));
-    setHistory([...history, 'You lied, SIN +1']);
+    setOperationCount((prevCount) => ({
+      ...prevCount,
+      additions: prevCount.additions + 1,
+    }));
+    setHistory([...history, "You lied, SIN +1"]);
   }
 
   function SinAddTwo() {
     setTotal(total + 2);
-    setOperationCount(prevCount => ({
-        ...prevCount,
-        additions: prevCount.additions + 1,
-      }));
+    setOperationCount((prevCount) => ({
+      ...prevCount,
+      additions: prevCount.additions + 1,
+    }));
     setHistory([...history, "You've been racist, SIN +2"]);
   }
 
   function SinRemoveOne() {
     setTotal(total - 1);
-    setOperationCount(prevCount => ({
-        ...prevCount,
-        subtractions: prevCount.subtractions + 1,
-      }));
-    setHistory([...history, 'You helped an elder, SIN -1']);
+    setOperationCount((prevCount) => ({
+      ...prevCount,
+      subtractions: prevCount.subtractions + 1,
+    }));
+    setHistory([...history, "You helped an elder, SIN -1"]);
   }
 
   function SinRemoveTwo() {
     setTotal(total - 2);
-    setOperationCount(prevCount => ({
-        ...prevCount,
-        subtractions: prevCount.subtractions + 1,
-      }));
-    setHistory([...history, 'You went to church! SIN -2']);
+    setOperationCount((prevCount) => ({
+      ...prevCount,
+      subtractions: prevCount.subtractions + 1,
+    }));
+    setHistory([...history, "You went to church! SIN -2"]);
   }
 
   function SinReset() {
     setTotal(1);
-    setHistory([...history, 'You took a bath!!']);
+    setHistory([...history, "You took a bath!!"]);
   }
 
   function Reborn() {
@@ -79,25 +82,27 @@ function App() {
     let newAdditions = 0;
     let newSubtractions = 0;
 
-    history.forEach(entry => {
-      if (entry.includes('SIN +1')) {
+    history.forEach((entry) => {
+      if (entry.includes("SIN +1")) {
         newTotal += 1;
         newAdditions += 1;
-      } else if (entry.includes('SIN +2')) {
+      } else if (entry.includes("SIN +2")) {
         newTotal += 2;
         newAdditions += 1;
-      } else if (entry.includes('SIN -1')) {
+      } else if (entry.includes("SIN -1")) {
         newTotal -= 1;
         newSubtractions += 1;
-      } else if (entry.includes('SIN -2')) {
+      } else if (entry.includes("SIN -2")) {
         newTotal -= 2;
         newSubtractions += 1;
       }
     });
 
     setTotal(newTotal);
-    setOperationCount({ additions: newAdditions, subtractions: newSubtractions });
-
+    setOperationCount({
+      additions: newAdditions,
+      subtractions: newSubtractions,
+    });
   }, [history]);
 
   return (
@@ -107,11 +112,10 @@ function App() {
         <Sidebar
           total={total}
           history={history}
-          summary={updateSummary()} 
+          summary={updateSummary()}
           checkTotal={checkTotal()}
           onHistoryClick={removeHistoryItem}
-
-         />
+        />
         <MainContent
           onRemoveTwo={SinRemoveTwo}
           onRemoveOne={SinRemoveOne}
@@ -119,8 +123,8 @@ function App() {
           onAddOne={SinAddOne}
           onAddTwo={SinAddTwo}
           clearAll={Reborn}
-       />
-       </div>
+        />
+      </div>
     </div>
   );
 }
